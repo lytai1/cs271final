@@ -35,41 +35,41 @@ def write_file(fileName, embedding_matrix):
 def main():
     fileName = "../processed_data/challenge_100.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/challenge_100_vec.csv"
+    fileName = "../processed_data/vec/challenge_100_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/BHO.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/BHO_vec.csv"
+    fileName = "../processed_data/label/vec/BHO_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/CeeInject.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/CeeInject_vec.csv"
+    fileName = "../processed_data/label/vec/CeeInject_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/FakeRean.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/FakeRean_vec.csv"
+    fileName = "../processed_data/label/vec/FakeRean_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/OnLineGames.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/OnLineGames_vec.csv"
+    fileName = "../processed_data/label/vec/OnLineGames_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/Renos.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/Renos_vec.csv"
+    fileName = "../processed_data/label/vec/Renos_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/Vobfus.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/Vobfus_vec.csv"
+    fileName = "../processed_data/label/vec/Vobfus_vec.csv"
     write_file(fileName, embedding_matrix)
 
     fileName = "../processed_data/label/Winwebsec.csv"
     embedding_matrix = convert_w2v(fileName)
-    fileName = "../processed_data/label/Winwebsec_vec.csv"
+    fileName = "../processed_data/label/vec/Winwebsec_vec.csv"
     write_file(fileName, embedding_matrix)
 main()
