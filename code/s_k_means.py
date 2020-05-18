@@ -26,6 +26,34 @@ def read_labeled(directory):
                 no_sample += 1
             i += 1
     return np.array(X), np.array(Y), np.array(X_test), np.array(Y_test)
+
+def read_dat_label(fileName):
+    f = open(fileName, "r")
+    x = []
+    y = []
+    for l in f:
+        line = l.split()
+        data = line[-1].split(",")
+        data = [float(i) for i in data]
+        x.append(data)
+        y.append(int(line[1]))
+    
+    n = max(set(y)) + 1
+    X_grouped = [[] for _ in range(n)]
+    for i in range(len(x)):
+        X_grouped[y[i]].append(x[i])
+    X = []
+    X_test = []
+    Y = []
+    Y_test = []
+    for i in range(n):
+        X += X_grouped[i][:800]
+        X_test += X_grouped[i][800:]
+        Y += [i] * 800
+        Y_test += [i] * 100
+
+    return np.array(X), np.array(Y), np.array(X_test), np.array(Y_test)
+
 def s_k_means(X, k, iterations):
     #initialization
     n = len(X)
@@ -107,8 +135,11 @@ def train(X, Y):
 
 
 def main():
-    directory = "../processed_data/vec"
-    X, Y , X_test, Y_test= read_labeled(directory)
+    # directory = "../processed_data/vec"
+    # X, Y , X_test, Y_test= read_labeled(directory)
+    fileName = "../word2vec/wordvec_900.dat"
+    X, Y , X_test, Y_test = read_dat_label(fileName)
+
     print("length of X = ", len(X))
     print("length of Y = ", len(Y))
     print("length of X test = ", len(X_test))
@@ -120,8 +151,10 @@ def main():
     a = accuracy(C, Y_test)
     print("accuracy = ", a)
 
-    directory = "../processed_data/label"
-    X, Y , X_test, Y_test= read_labeled(directory)
+    # directory = "../processed_data/label"
+    # X, Y , X_test, Y_test= read_labeled(directory)
+    fileName = "../features/vec_900.dat"
+    X, Y , X_test, Y_test = read_dat_label(fileName)
     print("length of X = ", len(X))
     print("length of Y = ", len(Y))
     print("length of X test = ", len(X_test))
